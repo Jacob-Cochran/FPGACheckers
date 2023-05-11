@@ -337,6 +337,9 @@ class App(tk.Tk):
         self.geometry("850x850")
         self.title("FPGA CHECKERS")
 
+
+
+
         white = ImageTk.PhotoImage(file="assets/white.png")
         black = ImageTk.PhotoImage(file="assets/black.png")
         blue = ImageTk.PhotoImage(file="assets/blue.png")
