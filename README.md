@@ -14,11 +14,13 @@ This project is a Checkers Game implemented using the Tkinter GUI library (with 
     
     3. *Checkers.bit*, *Checkers.hwh*, and *Checkers.tcl* all handle the underlying bitstream. The bitstream files were generated using Vivado High-Level-Synthesis that converted *CheckersHLS.cpp*, a C++ Checkers-logic implementation, into the bistream to implement an FPGA hardware overlay.
     
-3. **Application**: The code-base for the Checkers Game and GUI, which acts like a client to **Server**.
+2. **Application**: The code-base for the Checkers Game and GUI, which acts like a client to **Server**.
 
     1. *SocketCommunication.py* A helper class that instantiates a new Client Socket at runtime, which attempts to connect to the Server and send the information for a single move. The core method, *sendAGrid*, recieves information regarding the current move and game, and returns the new checker-board as well as condition-code information about the new state, such as pieces taken, if the move was valid, if and which player won, as well as the new updated grid.
     
-    3. *Application.py* This is the core of the GUI and the main executable. This is implemented using tkinter as a GUI-engine, as well as PIL as an image-handling dependency. The GUI is implemented using a standard Model-View-Controller class architecture. The Model handles only player turn order logic, as well as basic wrapping around the Server to handle win-conditions. Although win-conditions are fully implemented logically in the Server. The Model handles most business logic by sending socket requests using *SocketCommunication.py*'s *sendAGrid* method to send the current board and new move being attempted, to the server, which handles the request and returns information about the move and the new game-state back to the model.
+    3. *Application.py* This is the core of the GUI and the main executable. This is implemented using tkinter as a GUI-engine, as well as PIL as an image-handling dependency. The GUI is implemented using a standard Model-View-Controller class architecture. The Model handles only player turn order logic, as well as basic wrapping around the Server to handle win-conditions. Although win-conditions are fully implemented logically in the Server. The Model handles most business logic by sending socket requests using *SocketCommunication.py*'s *sendAGrid* method to send the current board and new move being attempted, to the server, which handles the request and returns information about the move and the new game-state back to the model. The View and Controller classes are fairly standard MVC GUI elements. 
+
+3. **Assets**: Images used for Checkers-pieces and the board.
 
 ### Future Features
 * This project is built on a relatively Modular MVC framework, which black-boxes business logic behind socket communication. This project could be changed into a Player-to-Player version using further computer networking quite easily. 
