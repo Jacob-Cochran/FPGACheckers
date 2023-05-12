@@ -172,6 +172,8 @@ class Model():
         gridResult = resultSplit[1].split(",")
         gridResult = [int(i) for i in gridResult]
 
+        print("Player Last Move:", self.playerLastMove, " | Current Move:", (row1, col1), "| Condition Code:", conditionCode)
+
         if conditionCode == "640":
             raise IllegalArgument("Invalid Move")
         elif self.playerAlreadyMoved:  # Checks if took a move last turn
@@ -179,6 +181,7 @@ class Model():
                 if self.playerLastMove is not None:
                     if self.playerLastMove == (row1, col1) and conditionCode[0:2] != "64":
                         # Verifies they are moving the same piece they just used to jump with
+                        self.playerLastMove = (row2, col2)
                         self.setGridFromOneDimensionArray(gridResult)
                         # Player is at least allowed to move so set grid
                         self.playerAlreadyMoved = (row2, col2)
@@ -200,7 +203,7 @@ class Model():
             self.gameState = GameState.blueWin
         elif conditionCode[2] == "3":
             self.gameState = GameState.redWin
-        self.printBoard()
+        # self.printBoard()
 
     def isLastJump(self):
         return self.wasJump

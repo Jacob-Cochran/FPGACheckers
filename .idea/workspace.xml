@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9153baaf-9239-4155-a215-4c39bc46b6ee" name="Changes" comment="Functional Build prior to implementing end-game automatically">
+    <list default="true" id="9153baaf-9239-4155-a215-4c39bc46b6ee" name="Changes" comment="Semi-functional build with exception of triple jump bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application.py" beforeDir="false" afterPath="$PROJECT_DIR$/Application.py" afterDir="false" />
     </list>
@@ -157,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683858037437</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Semi-functional build with exception of triple jump bugs">
+      <created>1683859749270</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683859749270</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,6 +183,7 @@
     <MESSAGE value="Added AssetPack" />
     <MESSAGE value="Current Version with Mocking" />
     <MESSAGE value="Functional Build prior to implementing end-game automatically" />
-    <option name="LAST_COMMIT_MESSAGE" value="Functional Build prior to implementing end-game automatically" />
+    <MESSAGE value="Semi-functional build with exception of triple jump bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Semi-functional build with exception of triple jump bugs" />
   </component>
 </project>
