@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+# TODO: Ensure Pillow is installed!
 from PIL import ImageTk, Image
 from enum import Enum
 import socketCommunication
@@ -460,16 +461,16 @@ class App(tk.Tk):
         self.geometry("650x650")
         self.title("FPGA CHECKERS:  Blue's Move")
 
-        whiteIMG = Image.open("assets/white.png").resize((75, 75))
-        blackIMG = Image.open("assets/black.png").resize((75, 75))
-        blueIMG = Image.open("assets/blue.png").resize((75, 75))
-        redIMG = Image.open("assets/red.png").resize((75, 75))
-        blue_kingIMG = Image.open("assets/blue_king.png").resize((75, 75))
-        red_kingIMG = Image.open("assets/red_king.png").resize((75, 75))
-        blueSelIMG = Image.open("assets/blue_select.png").resize((75, 75))
-        redSelIMG = Image.open("assets/red_select.png").resize((75, 75))
-        blue_kingSelIMG = Image.open("assets/blue_king_select.png").resize((75, 75))
-        red_kingSelIMG = Image.open("assets/red_king_select.png").resize((75, 75))
+        whiteIMG = Image.open("../assets/white.png").resize((75, 75))
+        blackIMG = Image.open("../assets/black.png").resize((75, 75))
+        blueIMG = Image.open("../assets/blue.png").resize((75, 75))
+        redIMG = Image.open("../assets/red.png").resize((75, 75))
+        blue_kingIMG = Image.open("../assets/blue_king.png").resize((75, 75))
+        red_kingIMG = Image.open("../assets/red_king.png").resize((75, 75))
+        blueSelIMG = Image.open("../assets/blue_select.png").resize((75, 75))
+        redSelIMG = Image.open("../assets/red_select.png").resize((75, 75))
+        blue_kingSelIMG = Image.open("../assets/blue_king_select.png").resize((75, 75))
+        red_kingSelIMG = Image.open("../assets/red_king_select.png").resize((75, 75))
 
         white = ImageTk.PhotoImage(whiteIMG)
         black = ImageTk.PhotoImage(blackIMG)
