@@ -10,7 +10,7 @@ This project is a Checkers Game implemented using the Tkinter GUI library (with 
 
 1. Server: The code-base intended for the Server, running on a PynQ FPGA using a custom hardware overlay.
 
-    1. Server.py: This is the core-script for the server. It instantiates a custom IP Overlay using a hardware bitstream, representing the move validation and state- checking logic of checkers. The Server file also runs the TCP Socket Server. It first creates a new TCP Socket Host, and listens indefinitely for incoming packets. It then interprets these packets as a chess move, as well as the current checker-board. The server then validates the move with a condition code, and returns the new board state.
+    1. ######Server.py: This is the core-script for the server. It instantiates a custom IP Overlay using a hardware bitstream, representing the move validation and state- checking logic of checkers. The Server file also runs the TCP Socket Server. It first creates a new TCP Socket Host, and listens indefinitely for incoming packets. It then interprets these packets as a chess move, as well as the current checker-board. The server then validates the move with a condition code, and returns the new board state.
 3. 
 
 ### Future Features
