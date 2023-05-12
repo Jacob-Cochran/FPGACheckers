@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9153baaf-9239-4155-a215-4c39bc46b6ee" name="Changes" comment="Added AssetPack">
-      <change afterPath="$PROJECT_DIR$/mockGrid.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socketCommunication.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testText" afterDir="false" />
+    <list default="true" id="9153baaf-9239-4155-a215-4c39bc46b6ee" name="Changes" comment="Current Version with Mocking">
+      <change afterPath="$PROJECT_DIR$/assets/blue_king_select.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/blue_select.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/red_king_select.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/red_select.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application.py" beforeDir="false" afterPath="$PROJECT_DIR$/Application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mockGrid.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mockGrid.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +141,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683729065567</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Current Version with Mocking">
+      <created>1683839599701</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683839599701</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Current Version with Mocking">
+      <created>1683839631571</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683839631571</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -157,6 +172,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Application." />
     <MESSAGE value="Added AssetPack" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added AssetPack" />
+    <MESSAGE value="Current Version with Mocking" />
+    <option name="LAST_COMMIT_MESSAGE" value="Current Version with Mocking" />
   </component>
 </project>
