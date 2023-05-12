@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9153baaf-9239-4155-a215-4c39bc46b6ee" name="Changes" comment="Triple-jump bug fixed">
+    <list default="true" id="9153baaf-9239-4155-a215-4c39bc46b6ee" name="Changes" comment="Working Build Version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application.py" beforeDir="false" afterPath="$PROJECT_DIR$/Application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socketCommunication.py" beforeDir="false" afterPath="$PROJECT_DIR$/socketCommunication.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,8 +109,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.Application" />
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.socketCommunication" />
+        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683861973427</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Working Build Version">
+      <created>1683863760203</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683863760203</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,6 +200,7 @@
     <MESSAGE value="Functional Build prior to implementing end-game automatically" />
     <MESSAGE value="Semi-functional build with exception of triple jump bugs" />
     <MESSAGE value="Triple-jump bug fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Triple-jump bug fixed" />
+    <MESSAGE value="Working Build Version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working Build Version" />
   </component>
 </project>

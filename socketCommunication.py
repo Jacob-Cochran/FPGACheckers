@@ -1,31 +1,24 @@
 import socket
-import time
-
-s = None
 
 
-def setup_socket():
-    global s
+def attempt_connection():
     s = socket.socket()
-    hostname = socket.gethostname()
-    port = 12345
-    host = socket.gethostbyname(hostname)
-    print(host)
-    s.bind((host, port))
+    host = '192.168.2.255'
+    port = 12340
+    s.connect((host, port))
+    return s
 
 
 def sendAGrid(moveString):
-    global s
-    setup_socket()
-    s.listen(5)
-    while True:
-        c, addr = s.accept()
-        print("connected to", addr)
-        break
-    message = moveString
-    c.send(message.encode())
-    result = c.recv(10000).decode()
-    c.close()
+    s = socket.socket()
+    host = '172.28.30.6'
+    port = 12345
+    print(host, port)
+    s.connect((host, port))
+
+    s.send(moveString.encode())
+    result = s.recv(10000).decode("UTF-8")
+    s.close()
     return result
 
 
