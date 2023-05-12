@@ -4,6 +4,9 @@
 ### Purpose
 This project is the classic game 'Checkers' also called 'Draughts'. This project implements a slim, but clean GUI interface to play the classic two-player game. The purpose of the project is a proof-of-concept using FPGA-fabric to run the core business logic of checkers in hardware. We also take advantage of computer networking by running this FPGA-fabric as a basic server, which the client GUI communicates with, thereby decoupling the FPGA-interface from the users. This demonstrates our second proof of concept, which is running back-end business logic as a hardware module instead of software.
 
+### Useage
+To use this project, first a PynQ FPGA must be configured and run *Server.py* from the **Server** package. Then, to run a game of Checkers, the client simply runs *Application.py* from the **Application** package.
+
 ### About
 
 This project is a Checkers Game implemented using the Tkinter GUI library (with PIL as a dependency). The Application works using a Client-Server Architecture implemented via Socket Communication. There are two separate components to this package: (1) A Server which runs on a PynQ FPGA, and (2) A lightweight GUI that runs on the clients local machine.
