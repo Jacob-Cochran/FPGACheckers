@@ -9,7 +9,7 @@ This project is the classic game 'Checkers' also called 'Draughts'. This project
 This project is a Checkers Game implemented using the Tkinter GUI library (with PIL as a dependency). The Application works using a Client-Server Architecture implemented via Socket Communication. There are two separate components to this package: (1) A Server which runs on a PynQ FPGA, and (2) A lightweight GUI that runs on the clients local machine.
 
 1. Server: The code-base intended for the Server, running on a PynQ FPGA using a custom hardware overlay.
-  a. Server.py: This is the core-script for the server. It instantiates a custom IP Overlay using a hardware bitstream, representing the move validation and state- checking logic of checkers. The Server file also runs the TCP Socket Server. It first creates a new TCP Socket Host, and listens indefinitely for incoming packets. It then interprets these packets as a chess move, as well as the current checker-board. The server then validates the move with a condition code, and returns the new board state.
+  * Server.py: This is the core-script for the server. It instantiates a custom IP Overlay using a hardware bitstream, representing the move validation and state- checking logic of checkers. The Server file also runs the TCP Socket Server. It first creates a new TCP Socket Host, and listens indefinitely for incoming packets. It then interprets these packets as a chess move, as well as the current checker-board. The server then validates the move with a condition code, and returns the new board state.
 3. 
 
 ### Future Features
