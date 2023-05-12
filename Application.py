@@ -72,11 +72,7 @@ class Model():
         self.playerAlreadyMoved = False  # False if hasn't moved yet, true if already moved but didnt take a piece,
         self.playerLastMove = None  # and tuple if moved and took a piece
         self.wasJump = False
-        self.controller = None
         self.resetGrid()
-
-    def setController(self, controller):
-        self.controller = controller
 
     def getTurn(self):
         return self.whosTurn
@@ -96,12 +92,12 @@ class Model():
         #     [2, 0, 2, 0, 2, 0, 2, 0]
         # ]
         self.grid = [
+            [0, 0, 0, 4, 0, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 1, 0, 1, 0],
+            [0, 0, 0, 0, 1, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 1, 0, 0, 0, 0, 0],
-            [0, 2, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0]
         ]
@@ -153,6 +149,7 @@ class Model():
         endPiece = getPieceFromGridPosition(self.grid, row2, col2)
         startLocation = row1 * 8 + col1
         endLocation = row2 * 8 + col2
+
         print("CALLING TAKE MOVE", startPiece, getPlayerFromPiece(startPiece))
         if getPlayerFromPiece(startPiece) != self.whosTurn:
             raise NotOwner("Player cannot move that piece!")
@@ -197,15 +194,16 @@ class Model():
             self.playerAlreadyMoved = True
             self.playerLastMove = (row2, col2)
             self.setGridFromOneDimensionArray(gridResult)
+        if conditionCode[0:2] != "64":
+            self.wasJump = True
         if conditionCode[2] == "2":
             self.gameState = GameState.blueWin
         elif conditionCode[2] == "3":
             self.gameState = GameState.redWin
-        if conditionCode[0:2] != "64":
-            self.wasJump = True
-        else:
-            self.endTurn()
         self.printBoard()
+
+    def isLastJump(self):
+        return self.wasJump
 
     def printBoard(self):
         outstring = ""
@@ -356,24 +354,25 @@ class Controller:
 
     def swapTurns(self):
         self.verifyGameNotOver()
-
-
-    def pressedEnter(self, event):
-        self.verifyGameNotOver()
-        if event.keysym == "Return":
-            print("Swapping turns")
-            if self.lastClicked is not None:
-                newGrid = self.model.getGrid()
-                lastRow = self.lastClicked[0]
-                lastCol = self.lastClicked[1]
-                self.view.removeHighlightAtPieceLocation(newGrid, lastRow, lastCol)
-                self.lastClicked = None
-            self.model.endTurn()
+        print("Swapping turns")
+        if self.lastClicked is not None:
+            newGrid = self.model.getGrid()
+            lastRow = self.lastClicked[0]
+            lastCol = self.lastClicked[1]
+            self.view.removeHighlightAtPieceLocation(newGrid, lastRow, lastCol)
+            self.lastClicked = None
+        self.model.endTurn()
         currentTurn = self.model.getTurn()
         if currentTurn == player.blue:
             self.root.title("FPGA CHECKERS:  Blue's Move")
         elif currentTurn == player.red:
             self.root.title("FPGA CHECKERS:  Red's Move")
+
+
+    def pressedEnter(self, event):
+        self.verifyGameNotOver()
+        if event.keysym == "Return":
+            self.swapTurns()
 
     def clickedPlayerTile(self, row, col, curPiece):
         """
@@ -396,6 +395,10 @@ class Controller:
             if self.lastClicked is None:
                 raise NotOwner("Can't move other players piece!")
             else:
+                newGrid = self.model.getGrid()
+                lastRow = self.lastClicked[0]
+                lastCol = self.lastClicked[1]
+                self.view.removeHighlightAtPieceLocation(newGrid, lastRow, lastCol)
                 self.lastClicked = None
                 raise NotEmpty("Can't move to occupied tile!")
         newGrid = self.model.getGrid()
@@ -429,10 +432,15 @@ class Controller:
                     print("Can't move to not empty tile!")
         print("\n" * 2)
 
+        # After validating a move check the win-conditions
         if self.model.gameState == GameState.redWin:
             self.root.title("FPGA CHECKERS:  Red Wins!")
         elif self.model.gameState == GameState.blueWin:
             self.root.title("FPGA CHECKERS:  Blue Wins!")
+
+        # Finally, if the move was not a jump then automatically end the users turn
+        if not self.model.isLastJump():
+            self.swapTurns()
 
 
 class App(tk.Tk):
@@ -469,7 +477,6 @@ class App(tk.Tk):
 
         controller = Controller(self, model, view)
         view.setController(controller)
-        model.setController(controller)
 
         event_sequence = '<KeyPress>'
         self.bind(event_sequence, controller.pressedEnter)
