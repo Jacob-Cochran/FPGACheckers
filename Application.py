@@ -94,10 +94,10 @@ class Model():
         self.grid = [
             [0, 0, 0, 4, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 1, 0, 0, 0],
+            [0, 3, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0, 3, 0],
+            [0, 0, 0, 0, 0, 3, 0, 0],
+            [0, 0, 0, 0, 1, 0, 3, 0],
             [0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0]
         ]
@@ -292,6 +292,8 @@ class View(ttk.Frame):
             label = tk.Label(master=frame, width=75, height=75, image=self.blue_king_sel)
         elif curPiece == tile.rk:
             label = tk.Label(master=frame, width=75, height=75, image=self.red_king_sel)
+        else:
+            raise IllegalArgument("Invalid highlight location")
         label.bind("<Button-1>", lambda e: self.controller.clickedPlayerTile(row, col, curPiece))
         return label
 
@@ -308,6 +310,8 @@ class View(ttk.Frame):
             label = tk.Label(master=frame, width=75, height=75, image=self.blue_king)
         elif curPiece == tile.rk:
             label = tk.Label(master=frame, width=75, height=75, image=self.red_king)
+        else:
+            raise IllegalArgument("Invalid highlight location")
         label.bind("<Button-1>", lambda e: self.controller.clickedPlayerTile(row, col, curPiece))
         return label
 
@@ -444,6 +448,10 @@ class Controller:
         # Finally, if the move was not a jump then automatically end the users turn
         if not self.model.isLastJump():
             self.swapTurns()
+        else:
+            self.lastClicked = [row, col]
+            newGrid = self.model.getGrid()
+            self.view.highlightPieceLocation(newGrid, row, col)
 
 
 class App(tk.Tk):
@@ -484,8 +492,6 @@ class App(tk.Tk):
         event_sequence = '<KeyPress>'
         self.bind(event_sequence, controller.pressedEnter)
         self.bind("<KeyRelease>", lambda e: controller.pressedEnter)
-
-        # view.drawFromGrid(model.getGrid()) <-- This is how to update the view based on the grid
 
 
 if __name__ == '__main__':
